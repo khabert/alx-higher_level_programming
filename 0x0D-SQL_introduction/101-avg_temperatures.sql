@@ -1,6 +1,12 @@
--- Script to  Display average temperature (Fahrenheit) by city ordered by temperature (descending order)
+-- import database dump temperatures.sql to hbtn_0c_0 database
 
-SELECT city, AVG(value) AS avg_temp
-FROM hbtn_0c_0.temperatures
+-- then lists average temp by city ordered by temp (desc)
+
+-- source temperatures.sql;
+
+SELECT
+    city,
+    AVG(value) AS avg_temp
+FROM temperatures
 GROUP BY city
-ORDER BY value DESC;
+ORDER BY avg_temp DESC;
