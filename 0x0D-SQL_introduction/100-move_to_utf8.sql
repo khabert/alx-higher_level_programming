@@ -1,19 +1,7 @@
--- Convert the database to UTF8
-ALTER DATABASE hbtn_0c_0 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- converts hbtn_0c_0 database to UTF8
 
--- Use the database
-USE hbtn_0c_0;
+-- source https://dba.stackexchange.com/questions/8239/how-to-easily-convert-utf8-tables-to-utf8mb4-in-mysql-5-5
 
--- Check if the table exists
-SELECT COUNT(*)
-FROM information_schema.tables
-WHERE table_schema = 'hbtn_0c_0' AND table_name = 'first_table';
-
--- Create the table if it doesn't exist
-CREATE TABLE IF NOT EXISTS first_table (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(255)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Convert the "name" field to UTF8
-ALTER TABLE first_table MODIFY name VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE hbtn_0c_0
+ALTER TABLE
+    first_table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

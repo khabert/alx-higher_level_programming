@@ -1,6 +1,12 @@
--- Script: Display top 3 cities temperature during July and August ordered by temperature
-SELECT city, temperature
-FROM hbtn_0c_0.temperatures
-WHERE month IN (7, 8)
-ORDER BY temperature DESC
+-- displays the top 3 of cities temp during July and August ordered by temp DESC
+
+-- source temperatures.sql;
+
+SELECT
+    city,
+    AVG(value) AS avg_temp
+FROM temperatures
+WHERE month BETWEEN '7' AND '8'
+GROUP BY city
+ORDER BY avg_temp DESC
 LIMIT 3;
