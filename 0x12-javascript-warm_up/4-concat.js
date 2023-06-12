@@ -1,3 +1,4 @@
+#!/usr/bin/node
 const array = process.argv.slice(2);
 if (array[0] === undefined && array[1] === undefined) {
   console.log('undefined is undefined');
